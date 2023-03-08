@@ -1,0 +1,98 @@
+﻿<Window x:Class="Calculator.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Calculator"
+        mc:Ignorable="d"
+        Title="Калькулятор" Height="450" Width="350" WindowStyle="ThreeDBorderWindow" FontFamily="Yu Gothic UI Semibold" FontSize="15" FontWeight="Normal" FontStyle="Normal">
+    <Window.Resources>
+        <Style x:Key="AllButtons" TargetType="Button">
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="Gray"/>
+                </Trigger>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="Background" Value="White"/>
+                    <Setter Property="Foreground" Value="Black"/>
+                </Trigger>
+            </Style.Triggers>
+            <Setter Property="Height" Value="70"/>
+            <Setter Property="Width" Value="70"/>
+            <Setter Property="Background" Value="#323232"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="40" Background="{TemplateBinding Background}" BorderThickness="0">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center">
+
+                            </ContentPresenter>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="ResultButton" TargetType="Button">
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#ffce00"/>
+                </Trigger>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="Background" Value="white"/>
+                    <Setter Property="Foreground" Value="Orange"/>
+                </Trigger>
+            </Style.Triggers>
+            <Setter Property="Height" Value="70"/>
+            <Setter Property="Width" Value="70"/>
+            <Setter Property="Background" Value="Orange"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="40" Background="{TemplateBinding Background}" BorderThickness="0">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center">
+
+                            </ContentPresenter>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Grid x:Name="MainRoot" Background="black">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="5" x:Name="TextLabel" Foreground="White" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="30"/>
+        <Button Style = "{StaticResource AllButtons}" Grid.Column="0" Grid.Row="1" Click="buttonNumClick" Margin="10" Height="Auto" Width="Auto">7</Button>
+        <Button Style = "{StaticResource AllButtons}" Grid.Column="1" Grid.Row="1" Click="buttonNumClick" Margin="10" Height="Auto" Width="Auto">8</Button>
+        <Button Style = "{StaticResource AllButtons}" Grid.Column="3" Grid.Row="1" Click="buttonNumClick" Margin="10" Height="Auto" Width="Auto">9</Button>
+        <Button Style = "{StaticResource ResultButton}" Grid.Column="4" Grid.Row="1" Click="DivButton_Click" Width="66" Height="66" >/</Button>
+        <Button Style = "{StaticResource AllButtons}" Grid.Column="0" Grid.Row="2" Click="buttonNumClick" Margin="10" Height="Auto" Width="Auto">4</Button>
+        <Button Style = "{StaticResource AllButtons}" Grid.Column="1" Grid.Row="2" Click="buttonNumClick" Margin="10" Height="Auto" Width="Auto">5</Button>
+        <Button Style = "{StaticResource AllButtons}" Grid.Column="3" Grid.Row="2" Click="buttonNumClick" Margin="10" Height="Auto" Width="Auto">6</Button>
+        <Button Style = "{StaticResource ResultButton}" Grid.Column="4" Grid.Row="2" Click="MultButton_Click" Width="66" Height="64">*</Button>
+        <Button Style = "{StaticResource AllButtons}" Grid.Column="0" Grid.Row="3" Click="buttonNumClick" Margin="10" Height="Auto" Width="Auto">1</Button>
+        <Button Style = "{StaticResource AllButtons}" Grid.Column="1" Grid.Row="3" Click="buttonNumClick" Margin="10" Height="Auto" Width="Auto">2</Button>
+        <Button Style = "{StaticResource AllButtons}" Grid.Column="3" Grid.Row="3" Click="buttonNumClick" Margin="10" Height="Auto" Width="Auto">3</Button>
+        <Button Style = "{StaticResource ResultButton}" Grid.Column="4" Grid.Row="3" Click="SubButtomClick" Width="66" Height="64">-</Button>
+        <Button Style = "{StaticResource AllButtons}" Grid.Column="0" Grid.Row="4" Click="buttonNumClick" Margin="10" Height="Auto" Width="Auto">0</Button>
+        <Button Style = "{StaticResource ResultButton}" Grid.Column="1" Grid.Row="4" Click="Equals_Click" Width="66" Height="64">=</Button>
+        <Button Style = "{StaticResource ResultButton}" Grid.Column="3" Grid.Row="4" Click="Delete_Click" Width="66" Height="64">AC</Button>
+        <Button Style = "{StaticResource ResultButton}" Grid.Column="4" Grid.Row="4" Click="AddButtomClick" Width="66" Height="64">+</Button>
+    </Grid>
+</Window>
